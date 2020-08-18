@@ -1,7 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'petfinder'
+# require 'rest-client'
+# require 'json'
+require 'pry'
+
+# Pet.delete_all
+
+petfinder = Petfinder::Client.new('2u1nB7dWp15nzrySJeUQFjnltpi8Akf7gjdXsKwYb7dFamtMRo', 'rkifGifKvl4IJRRlo1Y7XZ8Jn27a8xpB12lkLucA')
+
+petfinder.animals.each do |ani|
+        ani.each do |animal|
+#        binding.pry
+        Pet.create(
+        type: animal["type"],
+        breed: animal["breeds"]["primary"],
+        age: animal["age"],
+        gender: animal["gender"],
+        size: animal["size"],
+        img_url: animal["photos"]["small"],
+        name: animal["name"],
+        description: animal["description"],
+        #video_url: animal["videos"],
+        status: animal["status"],
+        #tags: animal["tags"],
+        contact_email: animal["contact"]["email"],
+        location: animal["contact"]["email"]["address"]["city"]
+        )
+    end
+end
+#binding.pry
+
+puts "seeding complete"
