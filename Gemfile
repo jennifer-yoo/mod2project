@@ -5,6 +5,7 @@ ruby '2.6.1'
 
 gem 'petfinder', '~> 2.0', '>= 2.0.1'
 gem 'require_all'
+gem 'pry'
 gem 'rest-client', '~> 2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'

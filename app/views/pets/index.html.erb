@@ -1,0 +1,9 @@
+<h2> Search by Animal: </h2>
+<p> Type in dog, cat, bird...</p>
+
+<%= form_tag pets_path, method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", animal: nil %>
+  </p>
+<% end %>

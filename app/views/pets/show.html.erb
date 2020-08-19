@@ -1,15 +1,21 @@
-<%= @pet.name %>
+<%= image_tag ("#{@pet.img_url}") %>
 
-
-<%= @pet.type %>
-<%= @pet.breed %>
+<h1>Meet <%= @pet.name %>!</h1>
+<p> <%= @pet.animal %> ||  <%= @pet.breed %> </p> <%= button_to "Add to Watchlist", new_watch_list_path %>
 
 <h3> About Me </h3>
-<p>
-    Age: <%= @pet.age %>
-    Gender: <%= @pet.gender %>
-    Size: <%= @pet.size %>
-    <%= @pet.description %>
-</p> 
+    <p>
+    <%= @pet.description %><br><br>
+        Age: <%= @pet.age %> <br>
+        Gender: <%= @pet.gender %><br>
+        Size: <%= @pet.size %><br>
+        Located: <%= @pet.city %>, <%= @pet.state %><br>
+    </p> 
 
-<% RANDOMMMMM %>
+<h3> Adopt Me </h3>
+    <p>
+        Contact: <%= @pet.contact_email %>
+    </p>
+
+<%= video_tag ("#{@pet.video_url}") %>
+

@@ -1,7 +1,8 @@
 class PetsController < ApplicationController
 
     def index
-        @pets = Pet.all
+        @pets = Pet.search(params:[:query])
+        render 'index'
     end
 
     def show

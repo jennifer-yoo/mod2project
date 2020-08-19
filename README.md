@@ -36,9 +36,10 @@ Things you may want to cover:
 
 <!-- Jenn: 
 
-1. Uninitialized Constant Pet error
 2. Pet index page/show page 
+    Pet index search does not work
 3. Form For Watchlist (adding pet to watchlist, swapping pet)
+    Form does not function
 4. Delete a pet from watchlist 
 
 Jim:
