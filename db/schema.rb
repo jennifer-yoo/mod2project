@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_08_18_152744) do
 
   create_table "pets", force: :cascade do |t|
-    t.string "type"
+    t.string "animal"
     t.string "breed"
     t.string "age"
     t.string "gender"
@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 2020_08_18_152744) do
     t.string "description"
     t.string "video_url"
     t.string "status"
-    t.string "tags"
     t.string "contact_email"
-    t.string "location"
+    t.string "city"
+    t.string "state"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

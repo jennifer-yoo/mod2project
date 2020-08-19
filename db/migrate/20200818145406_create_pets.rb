@@ -1,7 +1,7 @@
 class CreatePets < ActiveRecord::Migration[6.0]
   def change
     create_table :pets do |t|
-      t.string :type
+      t.string :animal
       t.string :breed
       t.string :age
       t.string :gender
@@ -11,10 +11,10 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.string :description
       t.string :video_url
       t.string :status
-      t.string :tags
       t.string :contact_email
-      t.string :location
-      t.integer :user_id
+      t.string :city
+      t.string :state
+      t.integer :user_id, :default => nil 
 
       t.timestamps
     end

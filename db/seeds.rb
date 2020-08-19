@@ -1,38 +1,29 @@
-# require 'petfinder'
-# require 'rest-client'
-# require 'json'
-# require 'pry'
-
-# Pet.delete_all
 User.delete_all
 Pet.delete_all
 WatchList.delete_all
 
-# petfinder = Petfinder::Client.new('2u1nB7dWp15nzrySJeUQFjnltpi8Akf7gjdXsKwYb7dFamtMRo', 'rkifGifKvl4IJRRlo1Y7XZ8Jn27a8xpB12lkLucA')
+require 'petfinder'
 
-# petfinder.animals.each do |ani|
-#         ani.each do |animal|
-# #        binding.pry
-#         Pet.create(
-#         type: animal["type"],
-#         breed: animal["breeds"]["primary"],
-#         age: animal["age"],
-#         gender: animal["gender"],
-#         size: animal["size"],
-#         img_url: animal["photos"]["small"],
-#         name: animal["name"],
-#         description: animal["description"],
-#         #video_url: animal["videos"],
-#         status: animal["status"],
-#         #tags: animal["tags"],
-#         contact_email: animal["contact"]["email"],
-#         location: animal["contact"]["email"]["address"]["city"]
-#         )
-#     end
-# end
-#binding.pry
+Pet.delete_all
 
-# puts "seeding complete"
+petfinder = Petfinder::Client.new('2u1nB7dWp15nzrySJeUQFjnltpi8Akf7gjdXsKwYb7dFamtMRo', 'rkifGifKvl4IJRRlo1Y7XZ8Jn27a8xpB12lkLucA')
+
+petfinder.animals[0].each do |anim|
+    Pet.create(
+        name: anim["name"],
+        animal: anim["type"],
+        breed: anim["breeds"]["primary"],
+        age: anim["age"],
+        gender: anim["gender"],
+        size: anim["size"],
+        img_url: (anim["photos"].empty? ? "https://cdn.shortpixel.ai/spai/w_533+q_lossy+ret_img+to_webp/https://997wooffm.com/wp-content/uploads/2019/01/noimagedog.jpg" : anim["photos"][0]["medium"]),
+        description: anim["description"],
+        status: anim["status"],
+        contact_email: anim["contact"]["email"],
+        city: anim["contact"]["address"]["city"],
+        state: anim["contact"]["address"]["state"]
+    )
+end
 
 User.create(name: "Bobby", age: "21", email: "someemail@email.com") 
 User.create(name: "Tom", age: "22", email: "another@email.com") 
