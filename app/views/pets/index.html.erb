@@ -1,9 +1,20 @@
 <h2> Search by Animal: </h2>
 <p> Type in dog, cat, bird...</p>
 
-<%= form_tag pets_path, method: :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", animal: nil %>
-  </p>
+<%= form_tag(pets_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'Search', :name => nil %>
 <% end %>
+
+
+
+<% if @pets.blank? %>
+  <h4>There are no searches containing the term <%= params[:search] %>.</h4>
+<% end %>
+
+<% if @pets.present? %>
+<h2> Pick a New Pal! </h2>
+<% @pets.each do |pet| %>
+<%=  link_to image_tag("#{pet.img_url}"), "#{pet_path(pet)}" %>
+<%end%>
+<%end%>
