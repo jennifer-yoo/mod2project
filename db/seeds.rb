@@ -1,8 +1,8 @@
 require 'petfinder'
 
-User.delete_all
-Pet.delete_all
-WatchList.delete_all
+User.destroy_all
+Pet.destroy_all
+WatchList.destroy_all
 
 petfinder = Petfinder::Client.new('2u1nB7dWp15nzrySJeUQFjnltpi8Akf7gjdXsKwYb7dFamtMRo', 'rkifGifKvl4IJRRlo1Y7XZ8Jn27a8xpB12lkLucA')
 
