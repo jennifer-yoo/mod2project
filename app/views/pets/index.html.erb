@@ -1,0 +1,5 @@
+<h1> Pick a New Pal! </h1>
+
+ <% @pets.each do |pet| %>
+ <p> <%= link_to pet.name, pet_path(pet.id) %> </p>
+ <%end%>

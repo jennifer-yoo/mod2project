@@ -42,8 +42,8 @@ Things you may want to cover:
 4. Delete a pet from watchlist 
 
 Jim:
-
-1. User Index page/Welome page 
-2. User Show Page which shows pets on watchlist 
-3. Browse a list of all the pets
-4. Error message for sign up if under 18 -->
+ 
+1. User Show Page which shows pets on watchlist 
+2. Browse a list of all the pets
+3. Error message for sign up if under 18 -->
+<!-- 4. User Sign in -->
