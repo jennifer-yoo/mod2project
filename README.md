@@ -34,17 +34,18 @@ Things you may want to cover:
 6) Browse all pets
 7) Error message for sign up if under 18 -->
 
-<!-- Jenn: 
+<!-- <!-- Jenn: 
 
-2. Pet index page/show page 
-    Pet index search does not work
-3. Form For Watchlist (adding pet to watchlist, swapping pet)
-    Form does not function
-4. Delete a pet from watchlist 
+1. Allow users to add pets to WatchList via Button
+2. Fix search bar, add more options
+3. Get rid of duplicate states in search
+4. If pet is on watchlist, dont show for that user on pet index
+5. Remind Jim about ? in URL
 
 Jim:
  
-1. User Show Page which shows pets on watchlist 
-2. Browse a list of all the pets
-3. Error message for sign up if under 18 -->
-<!-- 4. User Sign in -->
+1. Error message for sign up if under 18 
+2. User must have unique email 
+3. Password must be 6 characters or longer
+4. User should see a link to their watchlist upon signing in  -->
+
