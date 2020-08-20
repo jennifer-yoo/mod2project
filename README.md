@@ -42,10 +42,9 @@ Things you may want to cover:
 4. If pet is on watchlist, dont show for that user on pet index
 5. Remind Jim about ? in URL
 
-Jim:
+<!-- Jim:
  
 1. Error message for sign up if under 18 
 2. User must have unique email 
 3. Password must be 6 characters or longer
-4. User should see a link to their watchlist upon signing in  -->
-
+4. User should see a link to their watchlist upon signing in  --> 

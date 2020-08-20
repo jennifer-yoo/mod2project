@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-<<<<<<< HEAD
-end
-=======
 
     def logout
         session.delete(:user_id)
@@ -22,4 +19,3 @@ end
         end
     end
 end
->>>>>>> jenns-branch
