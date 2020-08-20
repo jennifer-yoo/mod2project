@@ -1,24 +1,25 @@
-<h1> Create your profile </h1>
-
-<% if flash[:user_errors] %>  
-  <% flash[:user_errors].each do |error| %>
-    <p><%= error %>  </p>
-  <%end%>
-<%end%>
-
-<%= form_for @user do |f| %>
-    <%= f.label :name, "Username" %>
-    <%= f.text_field :name %> <br>
-    <%= f.label :age %>
-    <%= f.number_field :age %><br>
-    <%= f.label :email %>
-    <%= f.email_field :email %><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
-    <%= f.submit %>
-<% end %>
-
+<br>
+<br>
+<br>
 <br>
 
-<p> <%= link_to "Click here to browse without an account", pets_path %> </p>
-
+<div>
+  <h1> Create your profile </h1>
+    <% if flash[:user_errors] %>  
+      <% flash[:user_errors].each do |error| %>
+        <p><%= error %></p>
+      <%end%>
+    <%end%>
+    <%= form_for @user do |f| %>
+        <%= f.label :name, "Username" %>
+        <%= f.text_field :name %> <br>
+        <%= f.label :age %>
+        <%= f.number_field :age %><br>
+        <%= f.label :email %>
+        <%= f.email_field :email %><br>
+        <%= f.label :password %>
+        <%= f.password_field :password %><br>
+        <%= f.submit %>
+    <% end %>
+  <p> <%= link_to "Click here to browse without an account", pets_path %> </p>
+</div>

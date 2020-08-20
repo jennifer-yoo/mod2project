@@ -1,48 +1,57 @@
 <br>
-<h2> Search: </h2>
-<p> You can search by animal, age, gender, size, or state abbreviation</p>
-
-<%= form_tag(pets_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'Search', :name => nil %>
-<% end %>
-
-<% if @pets.blank? %>
-  <h4>There are no searches containing the term <%= params[:search] %>.</h4>
-<% end %>
-
+<br>
+<br>
 <br>
 
-<% if @pets.present? && @current_user == nil %>
-  <h2> Pick a New Pal! </h2>
-      <% @pets.each do |pet| %>
-        <%= link_to image_tag("#{pet.img_url}"), "#{pet_path(pet)}" %>
-      <%end%>  
-<%end%>
+<div>
+  <h1> Find the Right PetPal for you</h1>
+  <p> Browse or search for you new pal below </p>
+  <h2> Search: </h2>
+    <p>You can search by animal, age, gender, size, or state abbreviation</p>
+      <%= form_tag(pets_path, method: :get) do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag 'Search', :name => nil %>
+      <% end %>
+    <% if @pets.blank? %>
+      <h4>There are no searches containing that term <%= params[:search] %>.</h4>
+    <% end %>
+    <br>
+    <br>
+  <% if @pets.present? && @current_user == nil %>
+    <h2> Pick a New Pal! </h2>
+        <% @pets.each do |pet| %>
+          <%= link_to image_tag("#{pet.img_url}"), "#{pet_path(pet)}" %>
+        <%end%>  
+  <%end%>
+</div>
 
-<%if @current_user%>
- <h3> Your Current Petpals </h3>  
+<div>
+  <%if @current_user%>
+  <h2> Your Current Petpals </h2>  
+        <% @pets.each do |pet| %>
+          <% @current_user.watch_lists.each do |list| %>
+            <% if list.pet_id == pet.id %>
+              <%= link_to image_tag("#{pet.img_url}"), "#{pet_path(pet)}" %>
+            <%end%>
+          <%end%>
+        <%end%>
+  <%end%>
+</div>
+
+<div>
+<% array = [] %>
+  <% if @current_user %>
+    <h2> Browse through our other pets </h2>
       <% @pets.each do |pet| %>
         <% @current_user.watch_lists.each do |list| %>
           <% if list.pet_id == pet.id %>
-            <%= link_to image_tag("#{pet.img_url}"), "#{pet_path(pet)}" %>
+            <% array << list.pet %>
           <%end%>
         <%end%>
       <%end%>
-<%end%>
-
-<% array = [] %>
-<% if @current_user %>
-  <h3> Browse through our other Pets </h3>
-    <% @pets.each do |pet| %>
-      <% @current_user.watch_lists.each do |list| %>
-        <% if list.pet_id == pet.id %>
-          <% array << list.pet %>
-        <%end%>
-      <%end%>
-    <%end%>
-      <% current_array = @pets - array %>
+        <% current_array = @pets - array %>
         <% current_array.each do |pet| %>
           <%= link_to image_tag("#{pet.img_url}"), "#{pet_path(pet)}" %>
         <%end%>
-<%end%>
+  <%end%>
+</div>

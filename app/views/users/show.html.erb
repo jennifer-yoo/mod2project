@@ -1,27 +1,32 @@
-<h1>  <%= "Your Profile #{@user.name}" %> </h1>
-
-<p> Name:<%= @user.name %> </p>
-
-<p> Age: <%= @user.age %></p>
-
-<p> Email: <%= @user.email %></p>
-
-<%= button_to "Add more PetPals", pets_path, method: :get  %>
-
+<br>
+<br>
+<br>
 <br>
 
-<h2> Watchlist: </h2>
 
-<% @user.watch_lists.each do |list| %> <br>
-<p> 
-    <%= image_tag("#{list.pet.img_url}")%> <br><br>
-    Name: <%= link_to list.pet.name, pet_path(list.pet) %> <br>
-    Contact: <%= mail_to list.pet.contact_email, list.pet.contact_email %><br>
-    My Note: <%= list.note %> 
-</p>    
-    <%= button_to "Edit your note", edit_watch_list_path(list), method: :get %> 
-    <%= button_to "Remove PetPal", watch_list_path(list), method: :delete %>
-<%end%>
+<div>
+    <h1><%= "User Info: " %></h1>
+    <p> 
+        Name: <%= @user.name %> <br>
+        Age: <%= @user.age %> <br>
+        Email: <%= @user.email %>
+    </p>
+</div>
 
-<h3> See a list of all animals up for adoption </h3>
-<%= link_to "Pet Homepage", pets_path %>
+<div>
+    <h2> Watchlist: </h2>
+        <%= button_to "Add more PetPals", pets_path, method: :get  %>
+        <% @user.watch_lists.each do |list| %> <br>
+        <p> 
+            <%= image_tag("#{list.pet.img_url}")%> <br><br>
+            Name: <%= link_to list.pet.name, pet_path(list.pet) %> <br>
+            Contact: <%= mail_to list.pet.contact_email, list.pet.contact_email %><br>
+            My Note: <%= list.note %> 
+        </p>    
+            <%= button_to "Edit your note", edit_watch_list_path(list), method: :get %> 
+            <%= button_to "Remove PetPal", watch_list_path(list), method: :delete %>
+        <%end%>
+    <br>
+    <h3> See a list of all animals up for adoption </h3>
+    <p><%= link_to "Pet Homepage", pets_path %></p>
+</div>

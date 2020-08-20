@@ -1,15 +1,22 @@
-<h1> Welcome Back! </h1>
+<br>
+<br>
+<br>
+<br>
 
-<% if flash[:error] %>
-    <%= flash[:error] %>
-<%end%>
-
-<%= form_for :session, url: login_path do |f| %>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.submit "Sign In"%>
-<% end %>
-    
-<p> <%= link_to "Click here to browse without signing in", pets_path %> </p>
+<div>
+    <body>
+        <h1> Welcome Back! </h1>
+        <% if flash[:error] %>
+            <p><%= flash[:error] %></p>
+        <%end%>
+        <%= form_for :session, url: login_path do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email %>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+            <%= f.submit "Sign In"%>
+        <% end %>
+            
+        <p> <%= link_to "Click here to browse without signing in", pets_path %> </p>
+    </body>
+</div>
