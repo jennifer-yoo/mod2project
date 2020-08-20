@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
-
+gem 'dotenv-rails'
 gem 'petfinder', '~> 2.0', '>= 2.0.1'
 gem 'require_all'
 gem 'pry'

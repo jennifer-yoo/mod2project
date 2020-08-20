@@ -1,10 +1,13 @@
+require 'dotenv/load'
 require 'petfinder'
 
 User.destroy_all
 Pet.destroy_all
 WatchList.destroy_all
 
-petfinder = Petfinder::Client.new('2u1nB7dWp15nzrySJeUQFjnltpi8Akf7gjdXsKwYb7dFamtMRo', 'rkifGifKvl4IJRRlo1Y7XZ8Jn27a8xpB12lkLucA')
+client_id =ENV['client_id']
+client_secret =ENV['client_secret']
+petfinder = Petfinder::Client.new('client_id', 'client_secret')
 
 petfinder.animals[0].each do |anim|
     Pet.create(

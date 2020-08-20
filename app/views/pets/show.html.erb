@@ -1,7 +1,14 @@
+
+<br>
+<br>
 <%= image_tag ("#{@pet.img_url}") %>
 
 <h1>Meet <%= @pet.name %>!</h1>
 <p> <%= @pet.animal %> ||  <%= @pet.breed %> </p> 
+
+<% if @current_user == nil %>
+    <p><%= link_to "Sign up", new_user_path %> or <%= link_to "Log In", new_login_path%> to add your new Petpal to your very own WatchList! </p>
+<% end %>
 
 <% if @current_user%>
     <% @current_user.watch_lists.each do |list| %>
