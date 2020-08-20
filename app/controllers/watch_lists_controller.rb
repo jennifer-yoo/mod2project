@@ -1,4 +1,6 @@
 class WatchListsController < ApplicationController
+before_action :find_list, only: [:edit, :show, :update, :destroy ]
+
     def new
         @watch_list = WatchList.new
         @users = User.all
@@ -11,26 +13,26 @@ class WatchListsController < ApplicationController
     end
 
     def edit
-        @watch_list = WatchList.find(params[:id])
     end
 
     def show
-        @watch_list = WatchList.find(params[:id])
     end
 
     def update
-        @watch_list = WatchList.find(params[:id])
         @watch_list.update(watch_list_params)
         redirect_to user_path(@watch_list.user_id)
     end
 
     def destroy
-        @watch_list = WatchList.find(params[:id])
         @watch_list.destroy
         redirect_to user_path(@watch_list.user)
     end
 
     private
+
+    def find_list
+        @watch_list = WatchList.find(params[:id])
+    end
 
     def watch_list_params
         params.require(:watch_list).permit(:user_id, :pet_id, :note)

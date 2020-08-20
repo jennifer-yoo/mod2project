@@ -9,21 +9,18 @@
 <%= button_to "Add more PetPals", pets_path, method: :get  %>
 
 <br>
+
 <h2> Watchlist: </h2>
-<% @user.watch_lists.each do |list| %>
-<br>
+
+<% @user.watch_lists.each do |list| %> <br>
 <p> 
-    <%= image_tag("#{list.pet.img_url}")%>
-    <br><br>
-    Name: <%= link_to list.pet.name, pet_path(list.pet) %> 
-    <br>
-    Contact: <%= mail_to list.pet.contact_email, list.pet.contact_email %>
-    <br>
+    <%= image_tag("#{list.pet.img_url}")%> <br><br>
+    Name: <%= link_to list.pet.name, pet_path(list.pet) %> <br>
+    Contact: <%= mail_to list.pet.contact_email, list.pet.contact_email %><br>
     My Note: <%= list.note %> 
+</p>    
     <%= button_to "Edit your note", edit_watch_list_path(list), method: :get %> 
     <%= button_to "Remove PetPal", watch_list_path(list), method: :delete %>
-
-</p>
 <%end%>
 
 <h3> See a list of all animals up for adoption </h3>

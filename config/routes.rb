@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :watch_lists
   resources :pets, only: [:index, :show]
-  resources :users
+  resources :users, only: [:show, :new, :create]
   post '/pets/:id/capture', to: 'pets#capture', as: 'pet_capture'
   put '/pets/:id/like', to: 'pets#like' , as: 'pet_like'
   delete '/sessions/logout', to: 'sessions#logout', as: 'logout'

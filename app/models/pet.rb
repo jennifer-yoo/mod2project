@@ -1,10 +1,9 @@
 class Pet < ApplicationRecord
-    #belongs_to :user, optional: true  -- alias relationship
     has_many :watch_lists
     has_many :users, through: :watch_lists
 
     def self.search(search)
-      where("animal LIKE ?", "%#{search}")
+      where("animal LIKE ? OR age LIKE ? OR size LIKE ? OR state LIKE ? OR gender LIKE ?", "%#{search}", "%#{search}", "%#{search}", "%#{search}", "%#{search}")
     end
 
     def pet_likes

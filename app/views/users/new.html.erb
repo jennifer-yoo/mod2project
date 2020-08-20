@@ -1,8 +1,8 @@
 <h1> Create your profile </h1>
 
-<% if flash[:user_errors] %>
-<% flash[:user_errors].each do |error| %>
-<p> <%= error %>  </p>
+<% if flash[:user_errors] %>  
+  <% flash[:user_errors].each do |error| %>
+    <p><%= error %>  </p>
   <%end%>
 <%end%>
 
@@ -17,4 +17,8 @@
     <%= f.password_field :password %><br>
     <%= f.submit %>
 <% end %>
-  
+
+<br>
+
+<p> <%= link_to "Click here to browse without an account", pets_path %> </p>
+
