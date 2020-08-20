@@ -1,5 +1,11 @@
 <h1> Create your profile </h1>
 
+<% if flash[:user_errors] %>
+<% flash[:user_errors].each do |error| %>
+<p> <%= error %>  </p>
+  <%end%>
+<%end%>
+
 <%= form_for @user do |f| %>
     <%= f.label :name, "Username" %>
     <%= f.text_field :name %> <br>

@@ -1,5 +1,4 @@
 class WatchListsController < ApplicationController
-
     def new
         @watch_list = WatchList.new
         @users = User.all

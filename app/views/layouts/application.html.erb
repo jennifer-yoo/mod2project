@@ -22,6 +22,7 @@
      <% if @current_user%>
        Hello <%= @current_user.name.capitalize %>
        <%= link_to "Log out", logout_path, method: :delete %>
+        <%= link_to "Profile", user_path(@current_user) %>
     <% else %>
      <%= link_to "Sign Up", new_user_path, method: :get %> 
      <%= link_to "Sign In", new_login_path, method: :get %> 

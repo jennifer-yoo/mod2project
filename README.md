@@ -43,10 +43,9 @@ Things you may want to cover:
 3. Remind Jim about ? in URL
 4. DOTENV to hide key
 
-Jim:
+<!-- Jim:
  
 1. Error message for sign up if under 18 
 2. User must have unique email 
 3. Password must be 6 characters or longer
-4. User should see a link to their watchlist upon signing in  -->
-
+4. User should see a link to their watchlist upon signing in  --> 

@@ -23,7 +23,6 @@ petfinder.animals[0].each do |anim|
     )
 end
 
-
 User.create(name: "Bobby", age: "21", email: "someemail@email.com") 
 User.create(name: "Tom", age: "22", email: "another@email.com") 
 User.create(name: "John", age: "23", email: "emailexample@email.com") 
