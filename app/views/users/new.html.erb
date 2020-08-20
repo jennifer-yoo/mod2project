@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Create a Profile</h1>
 
 <%= form_for @user do |f| %>
@@ -15,3 +16,19 @@
 
   <%= f.submit %>
 <% end %>
+=======
+<h1> Create your profile </h1>
+
+<%= form_for @user do |f| %>
+    <%= f.label :name, "Username" %>
+    <%= f.text_field :name %> <br>
+    <%= f.label :age %>
+    <%= f.number_field :age %><br>
+    <%= f.label :email %>
+    <%= f.email_field :email %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <%= f.submit %>
+<% end %>
+  
+>>>>>>> jenns-branch
