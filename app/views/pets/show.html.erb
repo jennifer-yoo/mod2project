@@ -2,10 +2,21 @@
 
 <h1>Meet <%= @pet.name %>!</h1>
 <p> <%= @pet.animal %> ||  <%= @pet.breed %> </p> 
-<%= button_to "Add to Watchlist", new_watch_list_path(@pet.id), method: :get %>
-    <%= @pet.likes %> ❤️ <%= button_to "Like", pet_like_path(@pet), method: :put %> 
-<br>
 
+<% if @current_user%>
+    <% @current_user.watch_lists.each do |list| %>
+    <% if @pet.id == list.pet_id %>
+         <p> You've already added this cutie to your WatchList! <br>
+         <%= link_to "Go to your Watchlist", user_path(@pet.users.ids) %></p>
+        <%end%>
+    <% end %>  
+    <% if @current_user.watch_lists.exists?(pet_id: @pet.id) == false %>
+        <%= button_to "Add to Watchlist", pet_capture_path, method: :post %>    
+    <%end%>
+<%end%>
+
+    
+<p><%= @pet.likes %> likes </p> <%= button_to "❤️", pet_like_path(@pet), method: :put %> 
 
 <h3> About Me </h3>
     <p>
@@ -21,5 +32,7 @@
         Contact: <%= mail_to @pet.contact_email, @pet.contact_email %>
     </p>
 
-<%= video_tag ("#{@pet.video_url}") %>
+<%= video_tag("#{@pet.video_url}") %>
+ <p>
+<%= link_to "Back to list of other pets", pets_path %> </p>
 

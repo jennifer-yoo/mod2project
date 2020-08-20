@@ -25,6 +25,8 @@ Things you may want to cover:
 * ...
 
 
+
+
 <!-- User Stories
 1) User should sign in
 2) User should be able to add a pet to their watchlist
@@ -36,11 +38,10 @@ Things you may want to cover:
 
 <!-- <!-- Jenn: 
 
-1. Allow users to add pets to WatchList via Button
-2. Fix search bar, add more options
-3. Get rid of duplicate states in search
-4. If pet is on watchlist, dont show for that user on pet index
-5. Remind Jim about ? in URL
+1. Add more functionality to search bar
+2. Get rid of duplicate states in search
+3. Remind Jim about ? in URL
+4. DOTENV to hide key
 
 Jim:
  

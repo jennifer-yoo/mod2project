@@ -8,7 +8,7 @@ class WatchListsController < ApplicationController
 
     def create
         @watch_list = WatchList.create(watch_list_params)
-        redirect_to user_path(@watch_list.user)
+        redirect_to user_path(@current_user)
     end
 
     def edit

@@ -1,4 +1,11 @@
-<h1> Edit your note </h1>
+<% if flash[:my_errors] %>
+    <%= flash[:my_errors] %>
+<% else  %>
+    <h1> Edit your note </h1>
+<%end%>
+
+
+
 <%= form_for @watch_list do |f| %>
     <%= f.hidden_field :user_id, value: @watch_list.user.id %>
     <%= f.hidden_field :pet_id, value: @watch_list.pet.id %>
@@ -9,3 +16,4 @@
     <%= f.submit "Submit"%>
 <% end %>
   
+

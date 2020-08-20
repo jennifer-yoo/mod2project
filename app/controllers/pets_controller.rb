@@ -13,6 +13,13 @@ class PetsController < ApplicationController
         @pet = Pet.find(params[:id])
     end
 
+    def capture
+        @pet = Pet.find(params[:id])
+        @watch_list = WatchList.create(user_id: @current_user.id, pet_id: @pet.id, note: "")
+        flash[:my_errors] = "Please write a note"
+        redirect_to edit_watch_list_path(@watch_list)
+    end
+
     def like
         @pet = Pet.find(params[:id])
         @pet.pet_likes
