@@ -6,38 +6,48 @@
 
 <body>
     <div>
-        <%= image_tag ("#{@pet.img_url}") %>
         <h1>Meet <%= @pet.name %>!</h1>
-        <p> <%= @pet.animal %> ||  <%= @pet.breed %> </p> 
+        <h5> <%= @pet.animal %> ||  <%= @pet.breed %> </h5> 
+        <%= image_tag ("#{@pet.img_url}") %>
     </div>
 
     <div>
     <% if @current_user == nil %>
-        <p><%= link_to "Sign up", new_user_path %> or <%= link_to "Log In", new_login_path%> to add your new Petpal to your very own WatchList! </p>
+        <p><%= link_to "Sign up", new_user_path %> or <%= link_to "Log In", new_login_path%> to add this cutie to your own Watchlist! </p>
     <% end %>
 
     <div>
-        <% if @current_user%>
-            <% @current_user.watch_lists.each do |list| %>
-                <% if @pet.id == list.pet_id %>
-                    <p> You've already added this cutie to your WatchList! <br>
-                    <%= link_to "Go to your Watchlist", user_path(@pet.users.ids) %></p>
-                <%end%>
-            <% end %>  
-                <% if @current_user.watch_lists.exists?(pet_id: @pet.id) == false %>
-                    <%= button_to "Add to Watchlist", pet_capture_path, method: :post %>    
-                <%end%>
-        <%end%>
-        <p><%= @pet.likes %> likes <%= button_to "❤️", pet_like_path(@pet), method: :put %> </p>
-
-    <h3> About Me </h3>
         <p>
-            <%= @pet.description %><br><br>
+            <% if @current_user%>
+                <% @current_user.watch_lists.each do |list| %>
+                    <% if @pet.id == list.pet_id %>
+                        <p> You've already added this cutie to your Watchlist! <br>
+                        <%= link_to "Go to your Watchlist", user_path(@pet.users.ids) %></p>
+                    <%end%>
+                <% end %>  
+                    <% if @current_user.watch_lists.exists?(pet_id: @pet.id) == false %>
+                        <%= button_to "Add to Watchlist", pet_capture_path, method: :post %>    
+                    <%end%>
+            <%end%>
+            <br>
+            <%if @pet.likes == nil || @pet.likes == 0 %> 
+                <%= @pet.likes %> <%= button_to "❤️", pet_like_path(@pet), method: :put %>  
+            <%elsif @pet.likes == 1%>
+                Liked by <%= @pet.likes %> other <%= button_to "❤️", pet_like_path(@pet), method: :put %>
+            <%else%>
+                Liked by <%= @pet.likes %> others <%= button_to "❤️", pet_like_path(@pet), method: :put %>
+            <%end%>
+        </p>
+    </div>
+
+<div>
+    <h3> About Me </h3>
+    <p>     <%= @pet.description %><br><br>
             Age: <%= @pet.age %> <br>
             Gender: <%= @pet.gender %><br>
             Size: <%= @pet.size %><br>
             Located: <%= @pet.city %>, <%= @pet.state %><br>
-        </p> 
+    </p> 
 
     <h3> Adopt Me </h3>
         <p> Contact: <%= mail_to @pet.contact_email, @pet.contact_email %> </p>

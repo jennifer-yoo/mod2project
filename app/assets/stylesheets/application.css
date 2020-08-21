@@ -22,7 +22,23 @@
     text-align: center;
 
   }
+
+h1 {
+    color: #340055; 
+}
   
+h2 {
+    color: #340055; 
+}
+
+h3 {
+    color: #340055; 
+}
+
+h4 {
+    color: #340055; 
+}
+
   header {
     position: fixed;
     top: 0;
@@ -47,6 +63,3 @@ a:active {
     color: #333033;
   }
   
-header.navbar_text{
-    color: white;
-}

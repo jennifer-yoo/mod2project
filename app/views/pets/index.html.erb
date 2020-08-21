@@ -2,10 +2,12 @@
 <br>
 <br>
 <br>
+<br>
 
 <div>
-  <h1> Find the Right PetPal for you</h1>
-  <p> Browse or search for you new pal below </p>
+  <h1 style="color:#7400bc;font-size:60px;">Find the Right PetPal for you</h1>
+  <br>
+  <p> Browse or search for your new pal below </p>
   <h2> Search: </h2>
     <p>You can search by animal, age, gender, size, or state abbreviation</p>
       <%= form_tag(pets_path, method: :get) do %>
@@ -13,7 +15,7 @@
           <%= submit_tag 'Search', :name => nil %>
       <% end %>
     <% if @pets.blank? %>
-      <h4>There are no searches containing that term <%= params[:search] %>.</h4>
+      <h4>There are no searches containing the term <%= params[:search] %></h4>
     <% end %>
     <br>
     <br>
@@ -26,7 +28,7 @@
 </div>
 
 <div>
-  <%if @current_user%>
+  <%if @current_user && @current_user.watch_lists.present? %>
   <h2> Your Current Petpals </h2>  
         <% @pets.each do |pet| %>
           <% @current_user.watch_lists.each do |list| %>
@@ -40,7 +42,7 @@
 
 <div>
 <% array = [] %>
-  <% if @current_user %>
+  <% if @current_user%>
     <h2> Browse through our other pets </h2>
       <% @pets.each do |pet| %>
         <% @current_user.watch_lists.each do |list| %>

@@ -2,7 +2,7 @@
 <br>
 <br>
 <br>
-
+<br>
 
 <div>
     <h1><%= "User Info: " %></h1>
@@ -11,11 +11,12 @@
         Age: <%= @user.age %> <br>
         Email: <%= @user.email %>
     </p>
+    <br>
+    <%= button_to "Add more PetPals", pets_path, method: :get  %>
 </div>
 
 <div>
     <h2> Watchlist: </h2>
-        <%= button_to "Add more PetPals", pets_path, method: :get  %>
         <% @user.watch_lists.each do |list| %> <br>
         <p> 
             <%= image_tag("#{list.pet.img_url}")%> <br><br>
@@ -27,6 +28,6 @@
             <%= button_to "Remove PetPal", watch_list_path(list), method: :delete %>
         <%end%>
     <br>
-    <h3> See a list of all animals up for adoption </h3>
+    <h4> See a list of all animals up for adoption </h4>
     <p><%= link_to "Pet Homepage", pets_path %></p>
 </div>

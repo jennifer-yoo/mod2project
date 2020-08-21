@@ -15,7 +15,7 @@ before_action :find_pet, only: [:show, :capture, :like]
 
     def capture
         @watch_list = WatchList.create(user_id: @current_user.id, pet_id: @pet.id, note: "")
-        flash[:my_errors] = "Please write a note"
+        flash[:my_errors] = "Write a note:"
         redirect_to edit_watch_list_path(@watch_list)
     end
 
