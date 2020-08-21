@@ -5,7 +5,9 @@
 <br>
 
 <div>
-  <h1> Create your profile </h1>
+  <br>
+  <h1> Create your PetPal profile </h1>
+    <br>
     <% if flash[:user_errors] %>  
       <% flash[:user_errors].each do |error| %>
         <p><%= error %></p>
@@ -22,5 +24,6 @@
         <%= f.password_field :password %><br>
         <%= f.submit %>
     <% end %>
-  <p> <%= link_to "Click here to browse without an account", pets_path %> </p>
+    <br>
+  <p> <%= link_to "Click here to browse without an account", pets_path, :style => "color: #7400bc;"  %> </p>
 </div>

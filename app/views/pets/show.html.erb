@@ -13,7 +13,7 @@
 
     <div>
     <% if @current_user == nil %>
-        <p><%= link_to "Sign up", new_user_path %> or <%= link_to "Log In", new_login_path%> to add this cutie to your own Watchlist! </p>
+        <p><%= link_to "Sign up", new_user_path, :style => "color: #7400bc;" %> or <%= link_to "Log In", new_login_path, :style => "color: #7400bc;" %> to add this cutie to your own Watchlist! </p>
     <% end %>
 
     <div>
@@ -22,7 +22,7 @@
                 <% @current_user.watch_lists.each do |list| %>
                     <% if @pet.id == list.pet_id %>
                         <p> You've already added this cutie to your Watchlist! <br>
-                        <%= link_to "Go to your Watchlist", user_path(@pet.users.ids) %></p>
+                        <%= link_to "Go to your Watchlist", user_path(@pet.users.ids), :style => "color: #7400bc;"  %></p>
                     <%end%>
                 <% end %>  
                     <% if @current_user.watch_lists.exists?(pet_id: @pet.id) == false %>
@@ -50,9 +50,10 @@
     </p> 
 
     <h3> Adopt Me </h3>
-        <p> Contact: <%= mail_to @pet.contact_email, @pet.contact_email %> </p>
+        <p> Status: <%= @pet.status.capitalize %> <br>
+            Contact: <%= mail_to @pet.contact_email, @pet.contact_email %> </p>
     </div>
 
     <%= video_tag("#{@pet.video_url}") %>
-    <p> <%= link_to "Back to list of other pets", pets_path %> </p>
+    <p> <%= link_to "Back to list of other pets", pets_path, :style => "color: #7400bc;"  %> </p>
 </body>

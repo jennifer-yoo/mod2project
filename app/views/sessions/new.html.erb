@@ -6,7 +6,9 @@
 
 <div>
     <body>
+    <br>
         <h1> Welcome Back! </h1>
+        <br>
         <% if flash[:error] %>
             <p><%= flash[:error] %></p>
         <%end%>
@@ -17,7 +19,7 @@
             <%= f.password_field :password %>
             <%= f.submit "Sign In"%>
         <% end %>
-            
-        <p> <%= link_to "Click here to browse without signing in", pets_path %> </p>
+            <br>
+        <p> <%= link_to "Click here to browse without signing in", pets_path, :style => "color: #7400bc;"  %> </p>
     </body>
 </div>

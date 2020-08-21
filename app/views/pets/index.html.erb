@@ -6,6 +6,8 @@
 
 <div>
   <h1 style="color:#7400bc;font-size:60px;">Find the Right PetPal for you</h1>
+  <img src="https://d17fnq9dkz9hgj.cloudfront.net/uploads/2015/09/hfh-banner.png", alt="Forever Dog">
+  <br>
   <br>
   <p> Browse or search for your new pal below </p>
   <h2> Search: </h2>
@@ -43,7 +45,7 @@
 <div>
 <% array = [] %>
   <% if @current_user%>
-    <h2> Browse through our other pets </h2>
+    <h2> Browse through our PetPals </h2>
       <% @pets.each do |pet| %>
         <% @current_user.watch_lists.each do |list| %>
           <% if list.pet_id == pet.id %>

@@ -19,20 +19,20 @@
       <ul class="navbar-nav mr-auto">
         <% if @current_user %>      
           <li class="nav-item">
-            <%= link_to "Profile", user_path(@current_user), method: :get, :style => "color: white;vertical-align: -16px;padding-left:770px;" %>
+            <%= link_to "Profile", user_path(@current_user), method: :get, :style => "font-size: 18px;color: white;vertical-align: -18px;padding-left:780px;font-family:Tahoma, Geneva;" %>
           </li>
           <li class="nav-item">
-              <%= link_to "Logout", logout_path, method: :delete, :style => "color: white;vertical-align: -16px;padding-left: 15px;" %>
+              <%= link_to "Logout", logout_path, method: :delete, :style => "font-size: 18px;color:white;vertical-align: -18px;padding-left: 28px;font-family:Tahoma, Geneva, sans-serif;" %>
           </li> 
           <span class="navbar-text">
-              <p style="padding-top:9px;padding-left:15px;color:#250838;font-family:sans-serif;font-size: 20px;">Welcome <%= @current_user.name.capitalize %></p>
+              <p style="padding-top:12px;padding-left:28px;color:white;font-family:Tahoma, Geneva, sans-serif;font-size: 18px;">Welcome <%= @current_user.name.capitalize %></p>
           </span>
         <%else%>
           <li class="nav-item">
-            <a class="nav-link" style="font-family:sans-serif;color:white;padding-left:1000px;" href="<%= new_user_path %>">Sign Up</a>
+            <a class="nav-link" style="font-family:Tahoma, Geneva, sans-serif;color:white;padding-left:1000px;" href="<%= new_user_path %>">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" style="font-family:sans-serif;color:white;" href="<%= new_login_path %>">Sign In</a>
+            <a class="nav-link" style="font-family:Tahoma, Geneva, sans-serif;color:white;" href="<%= new_login_path %>">Sign In</a>
           </li>
         </ul>
       </div>

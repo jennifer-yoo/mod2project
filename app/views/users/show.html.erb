@@ -5,9 +5,9 @@
 <br>
 
 <div>
-    <h1><%= "User Info: " %></h1>
+    <h1><%= "My PetPal Info:" %></h1>
     <p> 
-        Name: <%= @user.name %> <br>
+        Name: <%= @user.name.capitalize %> <br>
         Age: <%= @user.age %> <br>
         Email: <%= @user.email %>
     </p>
@@ -20,14 +20,17 @@
         <% @user.watch_lists.each do |list| %> <br>
         <p> 
             <%= image_tag("#{list.pet.img_url}")%> <br><br>
-            Name: <%= link_to list.pet.name, pet_path(list.pet) %> <br>
+            Name: <%= link_to list.pet.name, pet_path(list.pet), :style => "color: #7400bc;"  %> <br>
             Contact: <%= mail_to list.pet.contact_email, list.pet.contact_email %><br>
             My Note: <%= list.note %> 
         </p>    
             <%= button_to "Edit your note", edit_watch_list_path(list), method: :get %> 
             <%= button_to "Remove PetPal", watch_list_path(list), method: :delete %>
         <%end%>
+        <% if @user.watch_lists.empty? %>
+            <p> Add some animals to your Watchlist. They need your love!</p>
+        <%end%>
     <br>
     <h4> See a list of all animals up for adoption </h4>
-    <p><%= link_to "Pet Homepage", pets_path %></p>
+    <p><%= link_to "Pet Homepage", pets_path, :style => "color: #7400bc;"%></p>
 </div>
